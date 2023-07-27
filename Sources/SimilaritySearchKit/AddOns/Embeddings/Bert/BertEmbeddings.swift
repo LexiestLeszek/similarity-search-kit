@@ -1,6 +1,6 @@
 //
 //  BertEmbeddings.swift
-//  Lawrie
+//
 //
 //  Created by Leszek Mielnikow on 27/07/2023.
 //
