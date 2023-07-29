@@ -1,6 +1,6 @@
 //
 //  BertEmbeddings.swift
-//
+//  Lawrie
 //
 //  Created by Leszek Mielnikow on 27/07/2023.
 //
@@ -10,6 +10,7 @@ import Foundation
 import CoreML
 import NaturalLanguage
 import SimilaritySearchKit
+import SimilaritySearchKitDistilbert
 
 @available(macOS 13.0, iOS 16.0, *)
 public class BertEmbeddings: EmbeddingsProtocol {
