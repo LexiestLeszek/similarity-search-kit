@@ -1,4 +1,4 @@
-// swift-tools-version: 5.7
+// swift-tools-version:5.7
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -7,12 +7,16 @@ let package = Package(
     name: "SimilaritySearchKit",
     platforms: [
         .macOS(.v11),
-        .iOS(.v15),
+        .iOS(.v16),
     ],
     products: [
         .library(
             name: "SimilaritySearchKit",
             targets: ["SimilaritySearchKit"]
+        ),
+        .library(
+            name: "SimilaritySearchKitMyEmbeddings",
+            targets: ["SimilaritySearchKitMyEmbeddings"]
         ),
         .library(
             name: "SimilaritySearchKitDistilbert",
@@ -35,6 +39,11 @@ let package = Package(
             resources: [.process("Resources")]
         ),
         .target(
+            name: "SimilaritySearchKitMyEmbeddings",
+            dependencies: ["SimilaritySearchKit"],
+            path: "Sources/SimilaritySearchKit/AddOns/Embeddings/MyEmbeddings"
+        ),
+        .target(
             name: "SimilaritySearchKitDistilbert",
             dependencies: ["SimilaritySearchKit"],
             path: "Sources/SimilaritySearchKit/AddOns/Embeddings/Distilbert"
@@ -53,6 +62,7 @@ let package = Package(
             name: "SimilaritySearchKitTests",
             dependencies: [
                 "SimilaritySearchKit",
+                "SimilaritySearchKitMyEmbeddings",
                 "SimilaritySearchKitDistilbert",
                 "SimilaritySearchKitMiniLMAll",
                 "SimilaritySearchKitMiniLMMultiQA",
