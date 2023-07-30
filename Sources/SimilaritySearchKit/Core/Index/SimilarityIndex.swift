@@ -66,6 +66,9 @@ public class SimilarityIndex {
 
     /// An enumeration of available embedding models.
     public enum EmbeddingModelType {
+        /// BERT, a full version of BERT model fine tuned for embeddings on MSMARCO dataset
+        case myembeddings
+
         /// DistilBERT, a small version of BERT model fine tuned for questing-answering.
         case distilbert
 
