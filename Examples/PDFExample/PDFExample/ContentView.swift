@@ -8,6 +8,7 @@
 import SwiftUI
 import SimilaritySearchKit
 import SimilaritySearchKitDistilbert
+import SimilaritySearchKitMyEmbeddings
 import UIKit
 import MobileCoreServices
 import PDFKit
@@ -130,7 +131,7 @@ struct ContentView: View {
 
     func loadIndex() {
         Task {
-            similarityIndex = await SimilarityIndex(name: "PDFIndex", model: DistilbertEmbeddings(), metric: DotProduct())
+            similarityIndex = await SimilarityIndex(name: "PDFIndex", model: MyEmbeddings(), metric: DotProduct())
         }
     }
 
@@ -153,7 +154,7 @@ struct ContentView: View {
             chunks = splitText
 
             embeddings = []
-            if let miniqa = index.indexModel as? DistilbertEmbeddings {
+            if let miniqa = index.indexModel as? MyEmbeddings {
                 for chunk in chunks {
                     if let embedding = await miniqa.encode(sentence: chunk) {
                         embeddings.append(embedding)
